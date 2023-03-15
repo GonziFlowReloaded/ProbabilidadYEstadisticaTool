@@ -27,3 +27,10 @@ datos = """
 ```
 # plt.show()
 ```
+- Instalar las librerias numpy, statistics y matplotlib.pyplot
+##### Comandos:
+```
+pip install numpy
+pip install statistics
+pip install matplotlib.pyplot
+```
