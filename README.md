@@ -14,6 +14,13 @@ datos = """
 <datosGenericos>
 """
 ```
+#### Ejemplo:
+```
+datos = """
+21, 18, 30, 12, 14, 17, 28, 10, 16, 25,
+35, 28, 12
+"""
+```
 #### Recomendaciones:
 - El programa acepta datos tales como 1,2,3 y separados con un espacio, otro formato no.
 - Para ver los graficos de poligonos e histograma tenes que descomentar la parte que dice:
