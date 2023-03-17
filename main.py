@@ -4,7 +4,8 @@ import matplotlib.pyplot as plt
 import statistics as stat
 
 datos = """
-21, 18, 30, 12, 14, 17, 28, 10, 16, 25
+147 95 93 127 143 101 123 73 135 129
+185 92 115 126 157 93 133 51 125 132
 """
 
 elementos = datos.replace(',', '').split()
@@ -30,7 +31,9 @@ l = (float(mayor) - float(menor)) / k
 l = round(l)
 
 print("El valor de k es: ", k)
-print("El valor de l es: ", l)
+print("El valor de l(amplitud) es: ", l)
+rango = mayor - menor
+print("El rango es: ", rango)
 
 #Aqui se forman los intervalos de clase
 intervalos = []
@@ -56,18 +59,26 @@ def sturges_bins(data):
     return bins, hist
 
 intervalovichs, hist = sturges_bins(arr_np)
+nombreIntervalos = []
+for i in range(len(intervalovichs)):
+    nombreIntervalos.append([intervalovichs[i][0], intervalovichs[i][1], hist[i]])
+
+
+
 
 plt.plot([i[0] for i in intervalovichs], hist, 'o-')
 plt.title('Poligono de frecuencias')
 plt.xlabel('Intervalos de clase')
 plt.ylabel('Frecuencia')
-# plt.show()
 
-plt.hist(arr_np, bins=[i[0] for i in intervalovichs]+[intervalovichs[-1][1]], edgecolor='black')
+plt.show()
+
+plt.hist(arr_np, bins=[i[0] for i in intervalovichs]+[intervalovichs[-1][1]], edgecolor='black', align='left')
 plt.title('Histograma')
 plt.xlabel('Intervalos de clase')
 plt.ylabel('Frecuencia')
-# plt.show()
+plt.xticks([i[0] for i in intervalovichs], [f"{i[0]} - {i[1]}" for i in intervalovichs], )
+plt.show()
 
 # Calcular la media aritmética
 media = stat.mean(arr_np)
