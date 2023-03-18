@@ -116,12 +116,7 @@ for i in range(len(intervalovichs)-1):
 
 
 
-# plt.plot(arr_np, intervalovichs, 'o-')
-# plt.title('Poligono de frecuencias')
-# plt.xlabel('Intervalos de clase')
-# plt.ylabel('Frecuencia')
-
-# plt.show()
+#Histograma
 
 plt.hist(arr_np, bins=intervalovichs, align='left', edgecolor='black')
 plt.title('Histograma')
@@ -129,6 +124,21 @@ plt.xlabel('Intervalos de clase')
 plt.ylabel('Frecuencia')
 plt.xticks(labels=intervalosString, ticks=auxIntervalo)
 plt.show()
+
+# Poligono de frecuencias
+intervalosString.append('  ')
+intervalosString.insert(0,' ')
+frecuencias.insert(0, 0.00001)
+frecuencias.append(0)
+# Agregar en la 
+
+plt.plot(intervalosString, frecuencias, 'o-')
+plt.title('Poligono de frecuencias')
+plt.xlabel('Intervalos de clase')
+plt.ylabel('Frecuencia')
+plt.show()
+
+
 
 # Calcular la media aritmética
 media = stat.mean(arr_np)
