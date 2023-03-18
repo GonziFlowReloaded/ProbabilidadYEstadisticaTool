@@ -126,13 +126,17 @@ plt.xticks(labels=intervalosString, ticks=auxIntervalo)
 plt.show()
 
 # Poligono de frecuencias
-intervalosString.append('  ')
-intervalosString.insert(0,' ')
-frecuencias.insert(0, 0.00001)
-frecuencias.append(0)
+auxIntervaloString = []
+auxIntervaloString = intervalosString.copy()
+auxFreq = []
+auxFreq = frecuencias.copy()
+auxIntervaloString.append('  ')
+auxIntervaloString.insert(0,' ')
+auxFreq.insert(0, 0.00001)
+auxFreq.append(0)
 # Agregar en la 
 
-plt.plot(intervalosString, frecuencias, 'o-')
+plt.plot(auxIntervaloString, auxFreq, 'o-')
 plt.title('Poligono de frecuencias')
 plt.xlabel('Intervalos de clase')
 plt.ylabel('Frecuencia')
