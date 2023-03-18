@@ -34,3 +34,7 @@ pip install numpy
 pip install statistics
 pip install matplotlib.pyplot
 ```
+
+## Fotos de la magestuosidad de automatizar la materia:
+![image](https://user-images.githubusercontent.com/94322853/225958651-b759de29-7afa-462f-a308-f1758bf72fa4.png)
+
