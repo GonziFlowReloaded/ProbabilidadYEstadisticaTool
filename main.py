@@ -5,11 +5,10 @@ import statistics as stat
 from prettytable import PrettyTable
 
 datos = """
-5,2 6,0 7,5 8,0 5,0
-7,9 6,6 9,2 7,4 6,5
-8,0 9,0 9,2 7,4 6,5
-4,6 9,0 7,3 7,5 7,0
-6,5 7,5 6,5 8,1 8,2
+52,5 62,7 58,9 65,7 49,3
+58,9 57,3 60,4 59,6 58,1
+62,3 64,4 52,7 54,9 48,8
+56,8 53,1 58,7 61,6 63,3
 """
 
 # elementos = datos.replace(',', '').split()
@@ -79,26 +78,12 @@ def tabla_frecuencias(intervalos, frecuencias):
     
     print(tabla)
 def contar_frecuencias(intervalos, datos):
-    frecuencias = []
-    for i in range(len(intervalos)):
-        frecuencias.append(0)
-    auxIntervalos = []
-    for i in range(len(intervalos)):
-        try:
-            auxIntervalos.append([intervalos[i], intervalos[i+1]])
-        except IndexError:
-            pass
-    print(auxIntervalos)
-    
-
-    for i in range(len(intervalos)):
-        for dato in datos:
-            try:
-                if auxIntervalos[i][0] <= dato <= auxIntervalos[i][1]:
-                    frecuencias[i] += 1
-            except IndexError:
-                pass
+    auxIntervalos = list(zip(intervalos[:-1], intervalos[1:]))
+    frecuencias = [sum(1 for dato in datos if intervalo[0] <= dato < intervalo[1]) for intervalo in auxIntervalos]
+    frecuencias[len(frecuencias)-1] += 1
     return frecuencias, auxIntervalos
+
+
 
 def str_intervalos(intervalos):
     str_intervalos = []
@@ -108,7 +93,11 @@ def str_intervalos(intervalos):
 
 frecuencias, intervalosComplejos = contar_frecuencias(intervalovichs, arr_np)
 #Eliminar el ultimo elemento de la lista de frecuencias
-frecuencias.pop()
+# frecuencias.pop()
+
+print(frecuencias)
+30 == sum(frecuencias)
+
 intervalosString = str_intervalos(intervalosComplejos)
 auxIntervalo = []
 for i in range(len(intervalovichs)-1):
