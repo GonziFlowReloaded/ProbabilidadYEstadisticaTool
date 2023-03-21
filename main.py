@@ -80,7 +80,13 @@ def tabla_frecuencias(intervalos, frecuencias):
 def contar_frecuencias(intervalos, datos):
     auxIntervalos = list(zip(intervalos[:-1], intervalos[1:]))
     frecuencias = [sum(1 for dato in datos if intervalo[0] <= dato < intervalo[1]) for intervalo in auxIntervalos]
-    frecuencias[len(frecuencias)-1] += 1
+    maximos = 0
+    maximo = max(datos)
+    for dato in datos:
+        if dato == maximo:
+            maximos += 1
+    
+    frecuencias[len(frecuencias)-1] += maximos
     return frecuencias, auxIntervalos
 
 
