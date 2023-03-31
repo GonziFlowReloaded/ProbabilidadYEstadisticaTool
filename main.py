@@ -5,10 +5,7 @@ import statistics as stat
 from prettytable import PrettyTable
 
 datos = """
-52,5 62,7 58,9 65,7 49,3
-58,9 57,3 60,4 59,6 58,1
-62,3 64,4 52,7 54,9 48,8
-56,8 53,1 58,7 61,6 63,3
+datos
 """
 
 # elementos = datos.replace(',', '').split()
@@ -162,7 +159,7 @@ for num in arr_np:
 q1 = stat.median(medAbajo)
 q2 = stat.median(medArriba)
 print("Q1: ", q1)
-print("Q2: ", q2)
+print("Q3: ", q2)
 #Se calcula desviacion media
 desvMedia = 0
 for num in arr_np:
